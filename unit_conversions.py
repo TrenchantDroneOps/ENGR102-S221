@@ -15,6 +15,8 @@
 #e) Liters per second to US gallons per minute
 #f) Degrees Celsius to degrees Fahrenheit
 
+
+
 x = float(input("Please enter the quantity to be converted:"))
 #####------(a)--------#########
 print(x, "pounds force is equivalent to ", round(x/0.22480894387, 2), "Newtons")
@@ -23,7 +25,8 @@ print(x, "pounds force is equivalent to ", round(x/0.22480894387, 2), "Newtons")
 print(x, "meters is equivalent to ", round(x*3.2808399, 2), "feet")
 
 #####------(c)--------#########
-print(x, "atmospheres is equivalent to ", round(2,x*), "kilopascals")
+print(x, "atmospheres is equivalent to ", round(x*101.33, 2), "kilopascals")
+
 
 
 
