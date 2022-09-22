@@ -10,14 +10,15 @@
 
 from math import *
 
-sex = float(input("Enter your sex (M/F):"))
-age = float(input("Enter your age (years):"))
-BMI = float(input("Enter your BMI:"))
-medHypertension = float(input("Are you on medication for hypertension (Y/N)?"))
-steroids = float(input("Are you on steroids (Y/N)?"))
-smoke = float(input("Do you smoke cigarettes (Y/N)?"))
-usedToSmoke = float(input("Did you used to smoke (Y/N)?"))
-familyHistory = float(input("Do you have a family history of diabetes (Y/N)?"))
+sex = input("Enter your sex (M/F):\n")
+age = float(input("Enter your age (years):\n"))
+BMI = float(input("Enter your BMI:\n"))
+medHypertension = input("Are you on medication for hypertension (Y/N)?\n")
+steroids = input("Are you on steroids (Y/N)?\n")
+smoke = input("Do you smoke cigarettes (Y/N)?\n")
+#if smoke == "Y":
+usedToSmoke = input("Did you used to smoke (Y/N)?\n")
+familyHistory = input("Do you have a family history of diabetes (Y/N)?\n")
 
 #defining all input number values to 0
 sexValue = 0
@@ -75,10 +76,10 @@ elif smoke == "Y":
 if familyHistory == "N":
     familyHistoryValue = 0
 elif familyHistory =="Y":
-    whoFamily = float(input("Who in your family has diabetes (0 for if a parent or sibling and 1 for if a parent and sibling have diabetes )"))
-    if whoFamily == 0:
+    whoFamily = input("Both parent and sibling (Y/N)?\n")
+    if whoFamily == "N":
         familyHistoryValue = 0.728
-    elif whoFamily == 1:
+    elif whoFamily == "Y":
         familyHistoryValue = 0.753
         
 
@@ -88,4 +89,6 @@ n = 6.322 + sexValue - (0.063*age) - BMIValue - medHypertensionValue - steroidsV
 riskDiabetes = 100/(1 + exp(n))
 
 
-output = float(input("Your risk of developing type-2 diabetes is", riskDiabetes,"%"))
+#print("Your risk of developing type-2 diabetes is", riskDiabetes)
+
+print(f"Your risk of developing type-2 diabetes is {riskDiabetes:3.1f} %")
