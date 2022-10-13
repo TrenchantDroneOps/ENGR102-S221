@@ -15,6 +15,11 @@ for row in Board:
     for column in row:
         print(".", end=" ")
 
+player_stop = input("You done yet?")
 
+while player_stop != "yes" or "Yes":
+    Player1row = int(input("First move, input 0 for top row, 9 for bottom row"))
+    Player1column = int(input("First move, input 0 for leftmost column, 9 for rightmost"))
+    Board[Player1row[Player1column]]
 
 
