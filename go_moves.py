@@ -8,40 +8,36 @@
 # Date:         12 October 2022
 #
 
-Board = [[1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9] ]
-
-Board = [[1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9], [1, 2, 3, 4, 5, 6, 7, 8, 9] ]
+Board = [['.','.','.','.','.','.','.','.','.'], ['.','.','.','.','.','.','.','.','.'], ['.','.','.','.','.','.','.','.','.'], ['.','.','.','.','.','.','.','.','.'], ['.','.','.','.','.','.','.','.','.'], ['.','.','.','.','.','.','.','.','.'], ['.','.','.','.','.','.','.','.','.'], ['.','.','.','.','.','.','.','.','.'], ['.','.','.','.','.','.','.','.','.']]
 #The board
 
-Player1row = (input("First move, input 0 for top row, 9 for bottom row"))
-Player1column = (input("First move, input 0 for leftmost column, 9 for rightmost"))
-for row in Board:
+for i in range(len(Board)):
+    for j in range(len(Board[i])):
+        print(Board[i][j], end='')
     print()
-    for column in row:
-            print(".", end=" ")
-#THe board is displayed for all players to see
-counter = 0
-#to see who's turn it is
 
-player_stop = input("You done yet?")
-if player_stop != "yes" or "Yes":
-    counter += 1
-    Playerrow = int(input("The",counter,"th turn, next move, input row"))
-    Playercolumn = int(input("next move, input column"))
-    #Reprint the board, except with the indexed row and column replaced with a solid black circle
-    for row in Board:
+keepGoing = input('Ready to start?')
+while keepGoing != 'no' and keepGoing != 'No':
+    row = int(input('Black, please enter a row 1-9: '))
+    col = int(input('Black, please enter a column 1-9: '))
+    while Board[9-row][col-1] != '.':
+        print('That space has already been played on. Try again.')
+        row = int(input('Black, please enter a row 1-9: '))
+        col = int(input('Black, please enter a column 1-9: '))
+    Board [9-row][col-1] = '*'
+    for i in range(len(Board)):
+        for j in range(len(Board[i])):
+            print(Board[i][j], end='')
         print()
-        for column in row:
-            if counter // 2 == 0:
-                if Playerrow[Playercolumn] == column :
-                    print(chr(9679))
-                else:
-                    print(".", end=" ")
-            else:
-                if Playerrow[Playercolumn] == column:
-                    print(chr(9675)) #clear circle
-                else:
-                    print(".", end=" ")
-
-    player_stop = input("You done yet?")
-
+    row = int(input('White, please enter a row 1-9: '))
+    col = int(input('White, please enter a column 1-9: '))
+    while Board[9-row][col-1] != '.':
+        print('That space has already been played on. Try again.')
+        row = int(input('White, please enter a row 1-9: '))
+        col = int(input('White, please enter a column 1-9: '))
+    Board [9-row][col-1] = '@'
+    for i in range(len(Board)):
+        for j in range(len(Board[i])):
+            print(Board[i][j], end='')
+        print()
+    keepGoing = input('Keep going?')
